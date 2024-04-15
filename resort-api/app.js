@@ -1,13 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const resortRouter = require('./routes/resort-routes');
+const reservationRouter = require('./routes/reservation-routes');
+const roomsRoutes = require('./routes/rooms-routes');
+const employeesRoutes = require('./routes/employees-routes');
+const inventory = require('./routes/inventory-routes');
 
-var app = express();
+const app = express();
 const connectToDb = require('./db/DBCon');
 
 // view engine setup
@@ -20,8 +23,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+const rootURL = "/api/v1";
+app.use(`${rootURL}/guests`, resortRouter);
+app.use(`${rootURL}/reservation`, reservationRouter);
+app.use(`${rootURL}/rooms`, roomsRoutes);
+app.use(`${rootURL}/employees`, employeesRoutes);
+app.use(`${rootURL}/inventory`, inventory);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,7 +48,7 @@ const dbCon = async () => {
   }
 }
 
-dbCon();
+// dbCon();
 
 // error handler
 app.use(function(err, req, res, next) {
