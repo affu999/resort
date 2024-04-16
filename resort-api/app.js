@@ -9,6 +9,10 @@ const reservationRouter = require('./routes/reservation-routes');
 const roomsRoutes = require('./routes/rooms-routes');
 const employeesRoutes = require('./routes/employees-routes');
 const inventory = require('./routes/inventory-routes');
+const menuRoutes = require('./routes/menu-routes');
+const facilityRoutes = require('./routes/facility-routes');
+const reportAnalyticsRoutes = require('./routes/report-analytics-routes');
+const authRoutes = require('./routes/auth-route');
 
 const app = express();
 const connectToDb = require('./db/DBCon');
@@ -31,6 +35,10 @@ app.use(`${rootURL}/reservation`, reservationRouter);
 app.use(`${rootURL}/rooms`, roomsRoutes);
 app.use(`${rootURL}/employees`, employeesRoutes);
 app.use(`${rootURL}/inventory`, inventory);
+app.use(`${rootURL}/menus`, menuRoutes);
+app.use(`${rootURL}/facilities`, facilityRoutes);
+app.use(`${rootURL}/report-analytics`, reportAnalyticsRoutes);
+app.use(`${rootURL}/auth`, authRoutes);
 
 
 // catch 404 and forward to error handler
