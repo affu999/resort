@@ -56,7 +56,7 @@ const dbCon = async () => {
   }
 }
 
-// dbCon();
+dbCon();
 
 // error handler
 app.use(function(err, req, res, next) {
