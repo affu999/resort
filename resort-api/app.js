@@ -4,6 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+const specs = require('./config/swagger-config');
+
 const resortRouter = require('./routes/resort-routes');
 const reservationRouter = require('./routes/reservation-routes');
 const roomsRoutes = require('./routes/rooms-routes');
@@ -16,6 +20,10 @@ const authRoutes = require('./routes/auth-route');
 
 const app = express();
 const connectToDb = require('./db/DBCon');
+
+// Swagger Setup
+// const swaggerDefinition = swaggerJsdoc(specs);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
