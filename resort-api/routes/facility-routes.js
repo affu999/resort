@@ -1,30 +1,31 @@
 const express = require('express');
+const { getAllFacilities, getFacilityById, createFacility, updateFacility, deleteFacility } = require('../controllers/facilities-controller');
 
 const router = express.Router();
 
 // Read (GET) all facilities with pagination (optional)
 router.get('/', async (req, res) => {
-  
+  getAllFacilities(req, res);
 });
 
 // Read (GET) specific facility by ID
 router.get('/:facilityId', async (req, res) => {
-  
+  getFacilityById(req, res);
 });
 
 // Create (POST) new facility
 router.post('/', async (req, res) => {
-  
+  createFacility(req, res);
 });
 
 // Update (PUT) existing facility
 router.put('/:facilityId', async (req, res) => {
-  
+  updateFacility(req, res);
 });
 
 // Delete (DELETE) facility (consider soft delete)
 router.delete('/:facilityId', async (req, res) => {
-  
+  deleteFacility(req, res);
 });
 
 // Read (GET) all facility types

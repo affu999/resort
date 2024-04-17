@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+// create schemas for FacilityType, Location, Maintainance & Facility Inventory
+
 // Guest Schema
 const guestSchema = new mongoose.Schema({
   name: {
