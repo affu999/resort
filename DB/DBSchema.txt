@@ -1,0 +1,71 @@
+Guests{
+    _id (ObjectId): Unique identifier for the guest.
+    name (string): Full name of the guest.
+    contact_details (object):
+        email (string): Guest's email address.
+        phone (string): Guest's phone number.
+    preferences (array): Array of strings representing guest preferences (e.g., room type, amenities).
+    stay_history (array of objects):
+        reservation_id (ObjectId): Reference to the Reservations collection for a specific stay.
+        check_in (date): Check-in date for the stay.
+        check_out (date): Check-out date for the stay.
+    loyalty_points (number): Accumulated loyalty points for the guest (optional).
+}
+
+Reservations{
+    _id (ObjectId): Unique identifier for the reservation.
+    guest_id (ObjectId): Reference to the Guests collection for the guest who made the reservation.
+    room_id (ObjectId): Reference to the Rooms collection for the reserved room.
+    check_in (date): Check-in date for the reservation.
+    check_out (date): Check-out date for the reservation.
+    adults (number): Number of adults included in the reservation.
+    children (number): Number of children included in the reservation.
+    total_price (number): Total price for the reservation.
+    status (string): Reservation status (e.g., confirmed, pending, cancelled).
+    payment_details (object): Details of the payment made for the reservation (optional).
+}
+
+Rooms{
+    _id (ObjectId): Unique identifier for the room.
+    room_type (string): Type of room (e.g., standard, suite, villa).
+    description (string): Description of the room and amenities.
+    capacity (number): Maximum number of guests allowed in the room.
+    price (number): Base price of the room per night.
+    images (array of strings): URLs or references to images of the room (optional).
+}
+
+Employees{
+    _id (ObjectId): Unique identifier for the employee.
+    name (string): Full name of the employee.
+    contact_details (object): (same structure as Guests collection).
+    role (string): Employee role (e.g., receptionist, housekeeper, maintenance).
+    department (string): Department the employee belongs to (optional).
+}
+
+Inventory{
+    _id (ObjectId): Unique identifier for the inventory item.
+    name (string): Name of the inventory item (e.g., towels, toiletries, minibar items).
+    category (string): Category of the inventory item (e.g., room supplies, restaurant supplies).
+    stock_level (number): Current stock level of the item.
+    reorder_level (number): Minimum stock level before reordering.
+}
+
+Menus{
+    _id (ObjectId): Unique identifier for the menu.
+    name (string): Name of the menu (e.g., breakfast menu, room service menu).
+    category (string): Category of the menu (e.g., food, beverages).
+    items (array of objects):
+    name (string): Name of the menu item.
+    description (string): Description of the menu item.
+    price (number): Price of the menu item.
+    image (string): URL or reference to an image of the item (optional).
+}
+
+Facilities{
+    _id (ObjectId): Unique identifier for the facility.
+    name (string): Name of the facility (e.g., pool, gym, spa).
+    description (string): Description of the facility and its amenities.
+    capacity (number): Maximum capacity of the facility (optional).
+    availability (boolean): Indicates if the facility is currently available for use.
+    schedule (object): Opening and closing hours for the facility (optional).
+}
