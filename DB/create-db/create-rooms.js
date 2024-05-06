@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const { faker } = require('@faker-js/faker'); // Import faker from faker-js
 
 // Replace with your actual MongoDB connection URI
-const mongoURI = 'mongodb+srv://affansharief999:wS6XoFmJOjaIfMqj@resortcrm.nlapvvd.mongodb.net/resort_crm?retryWrites=true&w=majority&appName=resortCRM';
 
 mongoose.connect(mongoURI)
   .then(() => console.log('Connected to MongoDB'))
