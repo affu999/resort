@@ -1,0 +1,7 @@
+-> setup mongodb compass in local system
+
+-> load sample data/documents for all collections
+
+-> setup express application
+
+-> market research

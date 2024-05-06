@@ -1,0 +1,4 @@
+-> creating and setting up DB: 1D
+-> defining mongo schemas and defining routes: 1D
+-> defining controllers: 3D
+-> 
