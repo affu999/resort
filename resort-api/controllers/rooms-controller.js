@@ -13,7 +13,7 @@ const getAllRooms = async (req, res) => {
 
 const getRoomById = async (req, res) => {
     try {
-        const room = await Room.findById(req.params.roomId);
+        const room = await Room.findById(req.params.roomId); 
         if (!room) {
           return res.status(404).json({ message: 'Room not found' });
         }
