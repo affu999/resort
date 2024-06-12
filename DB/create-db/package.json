@@ -1,0 +1,17 @@
+{
+  "name": "create-db",
+  "version": "1.0.0",
+  "description": "create dummy data",
+  "main": "create-db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Affan Sharief",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.3.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1"
+  }
+}
